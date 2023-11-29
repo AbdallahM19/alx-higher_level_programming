@@ -1,7 +1,7 @@
 #include "lists.h"
 #include <stdlib.h>
-#include <stddef.h>
-
+#include <string.h>
+#include <stdio.h>
 /**
  * insert_node - inserts a number into a sorted singly linked list
  * @head: double pointer to head node of the linked list
@@ -11,26 +11,24 @@
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new_node = malloc(sizeof(listint_t));
-	listint_t *current = *head;
+	listint_t *current = NULL;
 
-	if (!new_node)
+	if (new_node == NULL)
 		return (NULL);
 	new_node->n = number;
 	new_node->next = NULL;
-	if (!current || new_node->n < current->n)
+	if (*head == NULL || (*head)->n >= new_node->n)
 	{
-		new_node->next = current;
-		return(*head = new_node);
+		new_node->next = *head;
+		*head = new_node;
 	}
-	while (current)
+	else
 	{
-		if (!current->next || new_node->n < current->next->n)
-		{
-			new_node->next = current->next;
-			current->next = new_node;
-			return (current);
-		}
-		current = current->next;
+		current = *head;
+		while (current->next != NULL && current->next->n < new_node->n)
+			current = current->next;
+		new_node->next = current->next;
+		current->next = new_node;
 	}
-	return (NULL);
+	return (new_node);
 }
