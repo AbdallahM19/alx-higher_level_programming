@@ -5,7 +5,7 @@
  * @head: pointer head of the linked list
  * Return: new head of the reversed list
  */
-listint_t *rev_list(listint_t **head)
+void rev_list(listint_t **head)
 {
 	listint_t *prev = NULL;
 	listint_t *current = *head;
@@ -27,7 +27,7 @@ listint_t *rev_list(listint_t **head)
  * @list2: pointer second linked list
  * Return: 1 if lists are equal, 0 if (not equal)
  */
-int compare_lists(listint_t *head)
+listint_t *compare_lists(listint_t *head)
 {
 	listint_t *slow = head;
 	listint_t *fast = head;
