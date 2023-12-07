@@ -1,8 +1,5 @@
 #include <Python.h>
 
-void print_python_list(PyObject *p);
-void print_python_bytes(PyObject *p);
-
 /**
  * print_python_list - Prints basic info about Python lists.
  * @p: a PyObject list object.
@@ -11,11 +8,11 @@ void print_python_list(PyObject *p)
 {
 	int size, alloc, i;
 	const char *type;
-	PyListObject *list = (PyListObject *)p;
-	PyVarObject *var = (PyVarObject *)p;
+	PyListObject *lists = (PyListObject *)p;
+	PyVarObject *vars = (PyVarObject *)p;
 
-	size = var->ob_size;
-	alloc = list->allocated;
+	size = vars->ob_size;
+	alloc = lists->allocated;
 
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %d\n", size);
@@ -23,10 +20,10 @@ void print_python_list(PyObject *p)
 	i = 0;
 	while (i < size)
 	{
-		type = list->ob_item[i]->ob_type->tp_name;
+		type = lists->ob_item[i]->ob_type->tp_name;
 		printf("Element %d: %s\n", i, type);
 		if (strcmp(type, "bytes") == 0)
-			print_python_bytes(list->ob_item[i]);
+			print_python_bytes(lists->ob_item[i]);
 		i++;
 	}
 }
