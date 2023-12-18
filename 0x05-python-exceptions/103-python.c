@@ -86,7 +86,7 @@ void print_python_list(PyObject *p)
  */
 void print_python_float(PyObject *p)
 {
-	char *buffer = NULL;
+	char *buff = NULL;
 
 	PyFloatObject *float_obj = (PyFloatObject *)p;
 
@@ -94,13 +94,9 @@ void print_python_float(PyObject *p)
 
 	printf("[.] float object info\n");
 	if (strcmp(p->ob_type->tp_name, "float") != 0)
-	{
-		printf("  [ERROR] Invalid Float Object\n");
-		return;
-	}
-
-	buffer = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
+		printf("  [ERROR] Invalid Float Object\n"), return;
+	buff = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
 			Py_DTSF_ADD_DOT_0, NULL);
-	printf("  value: %s\n", buffer);
-	PyMem_Free(buffer);
+	printf("  value: %s\n", buff);
+	PyMem_Free(buff);
 }
