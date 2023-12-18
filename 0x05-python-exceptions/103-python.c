@@ -50,7 +50,7 @@ void print_python_bytes(PyObject *p)
 void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, alloc, i;
-	const char *type;
+	const char *t;
 	PyListObject *list = (PyListObject *)p;
 	PyVarObject *var = (PyVarObject *)p;
 
@@ -70,11 +70,11 @@ void print_python_list(PyObject *p)
 	i = 0;
 	while (i < size)
 	{
-		type = list->ob_item[i]->ob_type->tp_name;
-		printf("Element %ld: %s\n", i, type);
-		if (strcmp(type, "bytes") == 0)
+		t = list->ob_item[i]->ob_type->tp_name;
+		printf("Element %ld: %s\n", i, t);
+		if (strcmp(t, "bytes") == 0)
 			print_python_bytes(list->ob_item[i]);
-		else if (strcmp(type, "float") == 0)
+		else if (strcmp(t, "float") == 0)
 			print_python_float(list->ob_item[i]);
 		i++;
 	}
