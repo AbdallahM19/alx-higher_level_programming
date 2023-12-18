@@ -13,12 +13,12 @@ void print_python_bytes(PyObject *p)
 	unsigned char i, size;
 	PyBytesObject *bytes = (PyBytesObject *)p;
 
+	fflush(stdout);
+
 	printf("[.] bytes object info\n");
 	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
-	{
-		printf("  [ERROR] Invalid Bytes Object\n");
-		return;
-	}
+		printf("  [ERROR] Invalid Bytes Object\n"), return;
+
 	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
 	printf("  trying string: %s\n", bytes->ob_sval);
 	if (((PyVarObject *)p)->ob_size > 10)
@@ -52,7 +52,12 @@ void print_python_list(PyObject *p)
 	size = vars->ob_size;
 	alloc = lists->allocated;
 
+	fflush(stdout);
+
 	printf("[*] Python list info\n");
+	if (strcmp(p->ob_type->tp_name, "list") != 0)
+		printf("  [ERROR] Invalid List Object\n"), return;
+
 	printf("[*] Size of the Python List = %d\n", size);
 	printf("[*] Allocated = %d\n", alloc);
 	i = 0;
@@ -70,7 +75,7 @@ void print_python_list(PyObject *p)
 
 /**
  * print_python_float - Prints basic info about Python float objects.
- * @p: a PyObject float object.
+ * @p: a PyObject list object.
  */
 void print_python_float(PyObject *p)
 {
