@@ -61,7 +61,9 @@ void print_python_list(PyObject *p)
 
 	printf("[*] Python list info\n");
 	if (strcmp(p->ob_type->tp_name, "list") != 0)
+	{
 		printf("  [ERROR] Invalid List Object\n"), return;
+	}
 
 	printf("[*] Size of the Python List = %ld\n", size);
 	printf("[*] Allocated = %ld\n", alloc);
