@@ -53,9 +53,12 @@ class Square:
                 print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
-        result = []
-        for x in range(self.__position[1]):
-            result.append("")
+        end = ""
+        for a in range(self.__position[1]):
+            end += "\n"
+        for b in range(self.__size):
+            end += " " * self.__position[0] + "#" * self.__size + "\n"
+        return end.rstrip("\n")
         for i in range(self.__size):
             result.append(" " * self.__position[0] + "#" * self.__size)
         return "\n".join(result)
