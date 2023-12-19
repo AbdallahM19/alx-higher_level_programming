@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Define my square """
+"""Define my square"""
 
 
 class Square:
-    """My Private instance attribute """
+    """My Private instance attribute"""
 
     def __init__(self, size=0, position=(0, 0)):
         """
@@ -51,12 +51,12 @@ class Square:
         self.__position = value
 
     def area(self):
-        """Public instance method """
+        """Public instance method"""
 
         return (self.__size ** self.__size)
     
     def my_print(self):
-        """print the square in # """
+        """print the square in #"""
 
         if self.__size == 0:
             print()

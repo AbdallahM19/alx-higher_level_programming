@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Define my square """
+"""Define my square"""
 
 
 class Square:
-    """My Private instance attribute """
+    """My Private instance attribute"""
 
     def __init__(self, size = 0):
-        """Instantiation with optional """
+        """Instantiation with optional"""
 
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -15,6 +15,6 @@ class Square:
         self.__size = size
 
     def area(self):
-        """Public instance method """
+        """Public instance method"""
 
         return (self.__size ** 2)
