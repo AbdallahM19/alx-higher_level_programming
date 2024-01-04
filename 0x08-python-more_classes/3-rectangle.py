@@ -9,8 +9,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Initialize our rectangle"""
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -54,8 +54,10 @@ class Rectangle:
         """Return a string representation of the rectangle"""
         if self.width == 0 or self.height == 0:
             return ""
-        return "\n".join(["#" * self.width] * self.height)
-
-    def __repr__(self):
-        """Return a formal string representation of the rectangle"""
-        return "Rectangle({}, {})".format(self.width, self.height)
+        rectangle = ""
+        for i in range(self.__height):
+            for x in range(self.__width):
+                rectangle += "#"
+            if i < self.__height - 1:
+                rectangle += "\n"
+        return rectangle
