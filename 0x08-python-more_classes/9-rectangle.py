@@ -46,17 +46,17 @@ class Rectangle:
 
     def area(self):
         """area of the rectangle"""
-        return self.height * self.width
+        return self.__height * self.__width
 
     def perimeter(self):
         """the perimeter of this rectangle"""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return (self.width + self.height) * 2
+        return (self.__width + self.__height) * 2
 
     def __str__(self):
         """Return a string representation of the rectangle"""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
         rectangle = ""
         for i in range(self.__height):
@@ -71,7 +71,7 @@ class Rectangle:
 
     def __repr__(self):
         """Return a string representation of the rectangle for eval()"""
-        return "Rectangle({:d}, {:d})".format(self.width, self.height)
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
         """Destructor method to print a message when an instance is deleted"""
@@ -85,14 +85,10 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        area_1 = rect_1.area()
-        area_2 = rect_2.area()
-        if area_1 > area_2:
-            return rect_1
-        else:
+        if rect_2.area() > rect_1.area():
             return rect_2
+        return rect_1
 
     @classmethod
     def square(cls, size=0):
-        """Class method to create a square instance"""
         return cls(size, size)
