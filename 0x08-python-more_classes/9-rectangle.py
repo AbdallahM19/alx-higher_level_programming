@@ -12,8 +12,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Initialize our rectangle"""
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -46,26 +46,26 @@ class Rectangle:
 
     def area(self):
         """area of the rectangle"""
-        return self.__height * self.__width
+        return self.__width * self.__height
 
     def perimeter(self):
         """the perimeter of this rectangle"""
         if self.__width == 0 or self.__height == 0:
             return 0
-        return (self.__width + self.__height) * 2
+        return (self.__width * 2) + (self.__height * 2)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Return a string representation of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ""
         rectangle = ""
-        for i in range(self.__height):
-            for x in range(self.__width):
+        for column in range(self.__height):
+            for row in range(self.__width):
                 try:
                     rectangle += str(self.print_symbol)
                 except Exception:
                     rectangle += type(self).print_symbol
-            if i < self.__height - 1:
+            if column < self.__height - 1:
                 rectangle += "\n"
         return rectangle
 
@@ -80,15 +80,15 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Static method to compare rectangles based on area"""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_2.area() > rect_1.area():
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
             return rect_2
-        return rect_1
 
     @classmethod
     def square(cls, size=0):
-        return cls(size, size)
+        return Rectangle(size, size)
