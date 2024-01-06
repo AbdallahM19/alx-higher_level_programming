@@ -42,3 +42,13 @@ Test invalid second arg:
         ...
     TypeError: b must be an integer
 
+Test adding two large integers:
+
+    >>> add_integer(999999999999, 888888888888)
+    1888888888887
+
+Test adding two small integers:
+
+    >>> add_integer(1, 2)
+    3
+
