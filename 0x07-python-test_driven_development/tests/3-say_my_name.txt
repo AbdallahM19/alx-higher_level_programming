@@ -1,0 +1,22 @@
+import function from module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Test with two strings:
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+Test with one string:
+    >>> say_my_name(John)
+    Traceback (most recent call last):
+    ..
+    NameError: name 'John' is not defined
+
+Test with one integer:
+    >>> say_my_name(12, "Smith")
+    Traceback (most recent call last):
+    ..
+    TypeError: first_name must be a string
+
+Test with no names:
+    >>> say_my_name("", "")
+    My name is  

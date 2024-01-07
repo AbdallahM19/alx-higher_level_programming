@@ -1,0 +1,46 @@
+The ``5-text_indentation`` module
+=================================
+
+Using ``5-text_indentation``
+----------------------------
+
+Import function from module:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test indentation after ., ? and ::
+
+    >>> text_indentation("Hello. How are you?")
+    Hello.
+
+    How are you?
+
+    >>> text_indentation("What is this? A test!")
+    What is this?
+
+    A test!
+
+    >>> text_indentation("Multiple lines. One question: Why?")
+    Multiple lines.
+
+    One question:
+
+    Why?
+
+    >>> text_indentation("Testing: one. Two: three?")
+    Testing: one.
+
+    Two: three?
+
+    >>> text_indentation("No delimiter here")
+    No delimiter here
+
+    >>> text_indentation("Empty string.")
+    Empty string.
+
+    >>> try:
+    ...     text_indentation(123)
+    ... except TypeError as e:
+    ...     str(e)
+    'text must be a string'
+
