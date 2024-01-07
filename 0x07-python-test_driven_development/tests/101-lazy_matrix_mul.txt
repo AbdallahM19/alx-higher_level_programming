@@ -49,4 +49,3 @@ Test matrix multiplication with a matrix containing a non-numeric element:
     Traceback (most recent call last):
     ...
     TypeError: m_b should contain only integers or floats
-
