@@ -32,14 +32,14 @@ Test invalid first arg:
 
     >>> add_integer("foo", 0)
     Traceback (most recent call last):
-        ...
+    ...
     TypeError: a must be an integer
 
 Test invalid second arg:
 
     >>> add_integer(123, [])
     Traceback (most recent call last):
-        ...
+    ...
     TypeError: b must be an integer
 
 Test adding two large integers:
