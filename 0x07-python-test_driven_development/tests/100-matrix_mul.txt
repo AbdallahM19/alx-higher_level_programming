@@ -73,3 +73,13 @@ Test 2:
     >>> print(matrix_mul(m_a, m_b))
     Traceback (most recent call last):
     TypeError: each row of m_b must be of the same size
+
+Test 3:
+    >>> print(matrix_mul(None, None))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+Test 4:
+    >>> print(matrix_mul([[1, 2]], None))
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
