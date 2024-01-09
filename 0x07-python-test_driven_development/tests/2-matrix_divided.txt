@@ -52,7 +52,7 @@ Test invalid divisor (string):
     ...
     TypeError: div must be a number
 
-text file to test the matrix_divided function:
+Text file to test the matrix_divided function:
 
     >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
@@ -79,3 +79,7 @@ text file to test the matrix_divided function:
     Traceback (most recent call last):
     ...
     TypeError: Each row of the matrix must have the same size
+
+Test additional:
+Test 1:
+
