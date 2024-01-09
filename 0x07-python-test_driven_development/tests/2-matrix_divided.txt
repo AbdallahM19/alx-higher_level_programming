@@ -83,9 +83,9 @@ Text file to test the matrix_divided function:
 Test additional:
 Test 1:
 >>> matrix = [
-...     [1, 2, 3],
-...     [4, 5, 6]
+...     [1, 2, 3, 4],
+...     [5, 6, 7]
 ... ]
->>> print(matrix_divided(matrix, "not a number"))
+>>> print(matrix_divided(matrix, 3))
 Traceback (most recent call last):
-TypeError: div must be a number
+TypeError: Each row of the matrix must have the same size
