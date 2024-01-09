@@ -23,4 +23,3 @@ class MyInt(int):
         false
         """
         return super().__eq__(other)
-
