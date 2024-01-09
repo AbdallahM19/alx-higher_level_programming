@@ -77,3 +77,19 @@ Test indentation after ., ? and ::
     Quae animi affectio suum cuique tribuens atque hanc, quam dico.
     <BLANKLINE>
     Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+Test additional:
+Test 1:
+    >>> text_indentation(7)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test 2:
+    >>> text_indentation({"one": 1, "two": 2})
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test 3:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
