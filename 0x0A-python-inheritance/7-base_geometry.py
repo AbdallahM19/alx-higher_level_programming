@@ -15,9 +15,11 @@ class BaseGeometry:
         """
         Validates the given value:
         If not an integer
-            Raises a TypeError exception with the message '<name> must be an integer'.
+            Raises a TypeError exception with
+            the message '<name> must be an integer'
         If less or equal to 0:
-            Raises a ValueError exception with the message '<name> must be greater than 0'.
+            Raises a ValueError exception with
+            the message '<name> must be greater than 0'
         """
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
