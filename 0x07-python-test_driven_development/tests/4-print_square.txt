@@ -79,3 +79,9 @@ Test trying to print a square of size -1 (should raise ValueError):
     ... except ValueError as e:
     ...     str(e)
     'size must be >= 0'
+
+Test additional:
+Test 1:
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
