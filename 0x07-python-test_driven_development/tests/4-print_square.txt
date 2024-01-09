@@ -85,3 +85,8 @@ Test 1:
     >>> print_square()
     Traceback (most recent call last):
     TypeError: print_square() missing 1 required positional argument: 'size'
+
+Test 2:
+    >>> print_square(-4)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
