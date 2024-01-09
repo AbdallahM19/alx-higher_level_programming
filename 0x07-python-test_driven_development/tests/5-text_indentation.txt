@@ -113,3 +113,9 @@ Test 4:
     Hi there.
     <BLANKLINE>
 
+Test 5:
+    >>> text_indentation("    messi.    is the best.   ")
+    messi.
+    <BLANKLINE>
+    is the best.
+    <BLANKLINE>
