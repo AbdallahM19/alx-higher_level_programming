@@ -82,6 +82,10 @@ Text file to test the matrix_divided function:
 
 Test additional:
 Test 1:
->>> print(matrix_divided(matrix, None))
+>>> matrix = [
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+>>> print(matrix_divided(matrix, "not a number"))
 Traceback (most recent call last):
 TypeError: div must be a number
