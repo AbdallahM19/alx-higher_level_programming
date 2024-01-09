@@ -39,3 +39,9 @@ Test case 4: first_name is not a string (expecting TypeError)
     ... except TypeError as e:
     ...     str(e)
     'first_name must be a string'
+
+Test additional:
+Test 1:
+    >>> say_my_name("MeCalister", ["Cavs", "Bakers", "Heat"])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
