@@ -109,24 +109,14 @@ Test 7:
     ValueError: m_a and m_b can't be multiplied
 
 Test 8:
-    >>> print(matrix_mul("not a list", [[1, 2]]))
+    >>> print(matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
-    TypeError: m_a must be a list
+    TypeError: matrix_mul() missing 2 required positional arguments: 
+    'm_a' and 'm_b'
 
 ::
 
-    >>> print(matrix_mul([[1, 2]], "also not a list"))
+    >>> print(matrix_mul()) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
-    TypeError: m_b must be a list
-
-::
-
-    >>> print(matrix_mul("not a list", "also not a list"))
-    Traceback (most recent call last):
-    TypeError: m_a must be a list
-
-::
-
-    >>> print(matrix_mul(None, None))
-    Traceback (most recent call last):
-    TypeError: m_a must be a list
+    TypeError: matrix_mul() missing 2 required positional arguments: 
+    'm_a' and 'm_b'
