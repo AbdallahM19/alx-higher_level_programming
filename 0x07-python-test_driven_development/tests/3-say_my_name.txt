@@ -50,12 +50,10 @@ Test 1:
     TypeError: last_name must be a string
 
 Test 2:
-
-    >>> say_my_name({"LeBron": 6, "Lames": 23}, 7.7)
+    >>> say_my_name(6, "James")
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
 Test 3:
-    >>> say_my_name(None)
-    Traceback (most recent call last):
-    TypeError: first_name must be a string
+    >>> say_my_name("Tom Jerry", "Avril")
+    My name is Tom Jerry Avril
