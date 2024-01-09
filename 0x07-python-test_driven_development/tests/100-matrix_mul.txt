@@ -109,14 +109,18 @@ Test 7:
     ValueError: m_a and m_b can't be multiplied
 
 Test 8:
-    >>> print(matrix_mul([[1, "non-number"]], [[3, 4]]))
+    >>> print(matrix_mul([1, 2], [[3, 4]]))
     Traceback (most recent call last):
-    TypeError: m_a should contain only integers or floats
+    TypeError: m_a must be a list of lists
 
-    >>> print(matrix_mul([[1, 2]], [[{"a": 1}, 8.8]]))
-    Traceback (most recent call last):
-    TypeError: m_b should contain only integers or floats
+::
 
-    >>> print(matrix_mul([[1, "non-number"]], [[{"a": 1}, 8.8]]))
+    >>> print(matrix_mul([[1, 2]], [3, 4]))
     Traceback (most recent call last):
-    TypeError: m_a should contain only integers or floats
+    TypeError: m_b must be a list of lists
+
+::
+
+    >>> print(matrix_mul([1, 2], [3, 4]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
