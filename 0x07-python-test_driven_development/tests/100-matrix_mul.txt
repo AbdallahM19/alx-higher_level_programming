@@ -130,10 +130,10 @@ Test 9:
 
     >>> print(matrix_mul([[1, 2]], [[]]))
     Traceback (most recent call last):
-    ValueError: m_a and m_b can't be multiplied
+    ValueError: m_b can't be empty
 
 ::
 
     >>> print(matrix_mul([[]], []))
     Traceback (most recent call last):
-    ValueError: m_b can't be empty
+    ValueError: m_a can't be empty

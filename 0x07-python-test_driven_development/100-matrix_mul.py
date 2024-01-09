@@ -13,7 +13,13 @@ def matrix_mul(m_a, m_b):
         m_b (list): The second matrix.
 
     Returns:
-        list: The resulting matrix.
+        TypeError: m_a is not a list
+        TypeError: m_b is not a list
+        TypeError: If m_a or m_b is not a list of lists
+        TypeError: If one element of list of lists is not int/float
+        TypeError: If row of m_a or m_b are not the same size
+        ValueError: If m_a or m_b is empty
+        ValueError: If m_a and m_b cannot be multiplied
 
     Raises:
         TypeError: If m_a or m_b is not a list, is not a list of lists,
@@ -31,9 +37,9 @@ def matrix_mul(m_a, m_b):
     if not all(isinstance(row, list) for row in m_b):
         raise TypeError("m_b must be a list of lists")
 
-    if not m_a:
+    if m_a == [] or m_a == [[]]:
         raise ValueError("m_a can't be empty")
-    if not m_b:
+    if m_b == [] or m_b == [[]]:
         raise ValueError("m_b can't be empty")
 
     if not all(isinstance(num, (int, float)) for i in m_a for num in i):
