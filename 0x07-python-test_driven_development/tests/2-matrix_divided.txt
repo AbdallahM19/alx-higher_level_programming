@@ -82,10 +82,12 @@ Text file to test the matrix_divided function:
 
 Test additional:
 Test 1:
->>> matrix = [
-...     [1, 2, 3],
-...     [4, "not a number", 6]
-... ]
+>>> matrix = [1, 2, 3]
 >>> print(matrix_divided(matrix, 3))
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test 2:
+>>> matrix = [[]]
+>>> print(matrix_divided(matrix, 3))
+[[]]
