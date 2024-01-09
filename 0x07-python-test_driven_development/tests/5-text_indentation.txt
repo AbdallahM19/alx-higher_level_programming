@@ -14,6 +14,7 @@ Test indentation after ., ? and ::
     Hello.
     <BLANKLINE>
     How are you?
+    <BLANKLINE>
 
     >>> text_indentation("What is this? A test!")
     What is this?
@@ -26,6 +27,7 @@ Test indentation after ., ? and ::
     One question:
     <BLANKLINE>
     Why?
+    <BLANKLINE>
 
     >>> text_indentation("Testing: one. Two: three?")
     Testing:
@@ -35,12 +37,14 @@ Test indentation after ., ? and ::
     Two:
     <BLANKLINE>
     three?
+    <BLANKLINE>
 
     >>> text_indentation("No delimiter here")
     No delimiter here
 
     >>> text_indentation("Empty string.")
     Empty string.
+    <BLANKLINE>
 
     >>> try:
     ...     text_indentation(123)
@@ -107,3 +111,5 @@ Test 3:
 Test 4:
     >>> text_indentation("   Hi there.")
     Hi there.
+    <BLANKLINE>
+
