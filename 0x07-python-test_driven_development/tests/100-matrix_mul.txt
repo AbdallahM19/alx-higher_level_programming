@@ -48,3 +48,15 @@ Test matrix multiplication with a matrix containing a non-numeric element:
     Traceback (most recent call last):
     ...
     TypeError: m_b should contain only integers or floats
+
+Test additional:
+Test 1:
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> m_b = m_a
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
