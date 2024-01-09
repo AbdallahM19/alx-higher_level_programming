@@ -103,3 +103,7 @@ Test 3:
     >>> text_indentation(None)
     Traceback (most recent call last):
     TypeError: text must be a string
+
+Test 4:
+    >>> text_indentation("   Hi there.")
+    Hi there.
