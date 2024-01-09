@@ -83,3 +83,13 @@ Test 4:
     >>> print(matrix_mul([[1, 2]], None))
     Traceback (most recent call last):
     TypeError: m_b must be a list
+
+Test 5:
+    >>> print(matrix_mul([1], [[3, 4]]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+Test 6:
+    >>> print(matrix_mul([[1, 2]], [3]))
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
