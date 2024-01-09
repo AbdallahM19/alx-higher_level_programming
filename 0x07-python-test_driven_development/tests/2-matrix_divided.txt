@@ -82,6 +82,6 @@ Text file to test the matrix_divided function:
 
 Test additional:
 Test 1:
->>> matrix = [[]]
->>> print(matrix_divided(matrix, 3))
-[[]]
+	>>> matrix = [[]]
+	>>> print(matrix_divided(matrix, 3))
+	[[]]
