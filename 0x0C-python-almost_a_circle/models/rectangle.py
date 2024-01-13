@@ -6,6 +6,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """Rectangle class"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Call the superclass constructor"""
         super().__init__(id)
@@ -81,12 +82,12 @@ class Rectangle(Base):
         for _ in range(self.y):
             print()
         for _ in range(self.height):
-            print(' ' * self.x + '#' * self.width)
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-        return "[{}] ({}) {}/{} - {}/{}".format(
-          'Rectangle', self.id, self.__x, self.__y, self.__width, self.__height
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height
         )
 
     def update(self, *args, **kwargs):
@@ -110,10 +111,10 @@ class Rectangle(Base):
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle"""
         rect_dict = {
-            'id' : self.id,
-            'width' : self.width,
-            'height' : self.height,
-            'x' : self.x,
-            'y' : self.y
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
         }
-        return(rect_dict)
+        return rect_dict
