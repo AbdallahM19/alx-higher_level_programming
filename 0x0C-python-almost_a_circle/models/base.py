@@ -43,3 +43,15 @@ class Base:
             else:
                 list_dicts = [i.to_dictionary() for i in list_objs]
                 jsonfile.write(cls.to_json_string(list_dicts))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes"""
+        if cls.__name__ == 'Rectangle':
+            i = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            i = cls(1)
+        else:
+            i = None
+        i.update(**dictionary)
+        return i
