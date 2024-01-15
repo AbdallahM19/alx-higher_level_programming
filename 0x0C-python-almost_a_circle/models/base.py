@@ -81,7 +81,6 @@ class Base:
                 for obj in list_objs:
                     csv_line.writerow(obj.to_dictionary())
 
-    
     @classmethod
     def load_from_file_csv(cls):
         """Deserialize instances from CSV file"""
@@ -90,12 +89,12 @@ class Base:
             with open(filename, "r", newline="") as csvfile:
                 header = cls.get_csv_header()
                 lines = csv.DictReader(csvfile, fieldnames=header)
-                lines = [dict([k, int(v)] for k, v in d.items())
-                            for d in lines]
+                lines = [
+                  dict([k, int(v)] for k, v in d.items()) for d in lines
+                ]
                 return [cls.create(**i) for i in lines]
         except (FileNotFoundError, IOError):
             return []
-
 
     @classmethod
     def get_csv_header(cls):
