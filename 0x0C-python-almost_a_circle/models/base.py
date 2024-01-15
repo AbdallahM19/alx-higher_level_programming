@@ -3,6 +3,7 @@
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -103,3 +104,31 @@ class Base:
             return ["id", "width", "height", "x", "y"]
         else:
             return ["id", "size", "x", "y"]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        turtle.speed(1)
+        turtle.bgcolor("white")
+        turtle.color("blue")
+        for rectangle in list_rectangles:
+            turtle.penup()
+            turtle.goto(rectangle.x, rectangle.y)
+            turtle.pendown()
+            turtle.forward(rectangle.width)
+            turtle.right(90)
+            turtle.forward(rectangle.height)
+            turtle.right(90)
+            turtle.forward(rectangle.width)
+            turtle.right(90)
+            turtle.forward(rectangle.height)
+            turtle.right(90)
+        turtle.color("red")
+        for square in list_squares:
+            turtle.penup()
+            turtle.goto(square.x, square.y)
+            turtle.pendown()
+            for _ in range(4):
+                turtle.forward(square.size)
+                turtle.right(90)
+        turtle.sleep(10)
+        turtle.done()
