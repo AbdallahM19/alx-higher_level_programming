@@ -140,7 +140,15 @@ class TestAnotherBase(unittest.TestCase):
     def test_P_from_json_string_empty_string(self):
         '''Tests from_json_string() with an empty string.'''
         self.assertEqual(Base.from_json_string(""), [])
-'''Test 1'''
+
+
+'''-----------------------------------------'''
+
+
+class test_base(unittest.TestCase):
+    '''
+        Testing base
+    '''
     def test_id_none(self):
         '''
             Sending no id
@@ -234,7 +242,11 @@ class TestAnotherBase(unittest.TestCase):
         json_string = Base.to_json_string([])
         self.assertEqual(json_string, '[]')
 
-'''Test 2'''
+
+class TestSquare(unittest.TestCase):
+    """
+    class for testing Base class' methods
+    """
     @classmethod
     def setUpClass(cls):
         """
@@ -254,6 +266,10 @@ class TestAnotherBase(unittest.TestCase):
         """
         self.assertTrue(len(Base.__doc__) >= 1)
 
+'''-------------------------------------------------'''
+
+
+class TestBase(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 
