@@ -5,11 +5,10 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 import json
-import os
 import inspect
 
 
-class TestBase(unittest.TestCase):
+class TestAnotherBase(unittest.TestCase):
     """Tests the AnotherBase class."""
 
     def setUp(self):
@@ -75,6 +74,7 @@ class TestBase(unittest.TestCase):
 
     def test_I_save_to_file(self):
         """Tests save_to_file() method."""
+        import os
 
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
@@ -141,6 +141,15 @@ class TestBase(unittest.TestCase):
     def test_P_from_json_string_empty_string(self):
         """Tests from_json_string() with an empty string."""
         self.assertEqual(Base.from_json_string(""), [])
+
+
+"""-----------------------------------------"""
+
+
+class test_base(unittest.TestCase):
+    """
+    Testing base
+    """
 
     def test_id_none(self):
         """
@@ -237,7 +246,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_string, "[]")
 
 
-class TestBase_1(unittest.TestCase):
+class TestSquare(unittest.TestCase):
     """
     class for testing Base class' methods
     """
@@ -265,7 +274,7 @@ class TestBase_1(unittest.TestCase):
 """-------------------------------------------------"""
 
 
-class TestBase_2(unittest.TestCase):
+class TestBase(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 

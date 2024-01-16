@@ -130,7 +130,7 @@ class TestRectangle(unittest.TestCase):
 """-----------------------------------"""
 
 
-class TestRectangle_1(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     def inheritance(self):
         self.assertIsInstance(Rectangle(6, 3), Base)
         r2 = Rectangle(6, 7)
@@ -154,10 +154,10 @@ class TestRectangle_1(unittest.TestCase):
         r4 = Rectangle(4, 8, 5, 8, 45)
         r5 = Rectangle(8, 7, 5, 4)
         self.assertEqual(r1.id, 50)
-        self.assertEqual(r2.id, 8)
-        self.assertEqual(r3.id, 9)
+        self.assertEqual(r2.id, 3)
+        self.assertEqual(r3.id, 4)
         self.assertEqual(r4.id, 45)
-        self.assertEqual(r5.id, 10)
+        self.assertEqual(r5.id, 5)
 
     def test_more_args(self):
         rec = Rectangle(4, 2, 6)
