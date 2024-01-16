@@ -16,6 +16,7 @@ import sys
 
 class TestRectangle(unittest.TestCase):
     """class"""
+
     def test_constructor(self):
         rect = Rectangle(10, 20, 30, 40, 1)
         self.assertEqual(rect.width, 10)
@@ -113,7 +114,7 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(5, 10, 2, 3, 7)
         rect_dict = rect.to_dictionary()
         self.assertEqual(rect_dict, {
-          'id': 7, 'width': 5, 'height': 10, 'x': 2, 'y': 3
+          "id": 7, "width": 5, "height": 10, "x": 2, "y": 3
         })
 
         rect.width = 8
@@ -121,9 +122,10 @@ class TestRectangle(unittest.TestCase):
         rect.x = 12
         rect.y = 8
         rect_dict = rect.to_dictionary()
-        self.assertEqual(rect_dict, {
-          'id': 7, 'width': 8, 'height': 15, 'x': 12, 'y': 8
-        })
+        self.assertEqual(
+            rect_dict, {"id": 7, "width": 8, "height": 15, "x": 12, "y": 8}
+        )
+
 
 """-----------------------------------"""
 
@@ -158,7 +160,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r5.id, 5)
 
     def test_more_args(self):
-
         rec = Rectangle(4, 2, 6)
         self.assertEqual(rec.y, 0)
 
@@ -168,6 +169,7 @@ class TestRectangle(unittest.TestCase):
 
         rec = Rectangle(8, 4)
         self.assertEqual(rec.x, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
