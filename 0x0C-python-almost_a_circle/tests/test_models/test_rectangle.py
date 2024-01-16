@@ -157,10 +157,10 @@ class TestRectangle(unittest.TestCase):
         r4 = Rectangle(4, 8, 5, 8, 45)
         r5 = Rectangle(8, 7, 5, 4)
         self.assertEqual(r1.id, 50)
-        self.assertEqual(r2.id, 1)
-        self.assertEqual(r3.id, 2)
+        self.assertEqual(r2.id, 3)
+        self.assertEqual(r3.id, 4)
         self.assertEqual(r4.id, 45)
-        self.assertEqual(r5.id, 3)
+        self.assertEqual(r5.id, 5)
 
     def test_more_args(self):
 
