@@ -14,6 +14,7 @@ import sys
 import json
 from io import StringIO
 
+
 class TestSquare(unittest.TestCase):
     def test_constructor(self):
         square = Square(5)
@@ -305,7 +306,8 @@ were given"
         r = Square(9)
         with self.assertRaises(TypeError) as e:
             Square.display()
-        s = "Rectangle.display() missing 1 required positional argument: 'self'"
+        s = "Rectangle.display() \
+        missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
     def test_J_display_simple(self):
@@ -637,7 +639,8 @@ were given"
         """Tests to_dictionary() signature:"""
         with self.assertRaises(TypeError) as e:
             Square.to_dictionary()
-        s = "Square.to_dictionary() missing 1 required positional argument: 'self'"
+        s = "Square.to_dictionary() \
+        missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
         r = Square(1)
@@ -758,7 +761,9 @@ class TestSquare_3:
         s1.size = 23
         self.assertEqual(s1.size, 23)
 
+
 """-----------------------------------------"""
+
 
 class TestSquare_4(unittest.TestCase):
     """
