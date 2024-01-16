@@ -101,3 +101,106 @@ class TestSquare(unittest.TestCase):
         square = Square(5)
         with self.assertRaises(ValueError):
             square.update(size=-5, x=10, y=15)
+
+"""---------------------------------------------"""
+
+
+
+class TestSquare(unittest.TestCase):
+    def test_id(self):
+        s1 = Square(6, 4, 8, 34)
+        s4 = Square(4, 9, 5, 40)
+
+        self.assertEqual(s1.id, 34)
+        self.assertEqual(s4.id, 40)
+        self.assertEqual(s1.y, 8)
+
+        s7 = Square(8, 6)
+        s8 = Square(6, 4)
+        self.assertEqual(s7.id, s8.id - 1)
+        self.assertEqual(s7.size, 8)
+        self.assertEqual(s8.x, 4)
+
+        s1.size = 23
+        self.assertEqual(s1.size, 23)
+
+    def inheritance(self):
+        self.assertIsInstance(Square(9), Base)
+
+    def test_args(self):
+        with self.assertRaises(TypeError):
+            Square()
+
+        with self.assertRaises(TypeError):
+            Square(7, 8, 6, 5, 9, 3)
+
+    def test_more_args(self):
+
+        sec = Square(6)
+        self.assertEqual(sec.y, 0)
+        self.assertEqual(sec.x, 0)
+
+        sec = Square(8, 7, 5)
+        sec1 = Square(5, 4)
+        self.assertEqual(sec.id, sec1.id - 1)
+
+import unittest
+
+class Square:
+    id_counter = 0
+
+    def __init__(self, x=0, y=0, size=0, id=None):
+        self.x = x
+        self.y = y
+        self.size = size
+
+        if id is not None:
+            self.id = id
+        else:
+            self.id = Square.id_counter
+            Square.id_counter += 1
+
+    def __repr__(self):
+        return f"Square({self.x}, {self.y}, {self.size}, {self.id})"
+
+    def test_id(self):
+        s1 = Square(6, 7, 8, 34)
+        s4 = Square(4, 8, 5, 40)
+
+        self.assertEqual(s1.id, 34)
+        self.assertEqual(s4.id, 40)
+        self.assertEqual(s1.y, 7)
+
+        s7 = Square(8, 6)
+        s8 = Square(6, 4)
+        self.assertEqual(s7.id, s8.id - 1)
+        self.assertEqual(s7.size, 8)
+        self.assertEqual(s8.x, 4)
+
+        s1.size = 23
+        self.assertEqual(s1.size, 23)
+
+    def inheritance(self):
+        pass
+
+    def test_args(self):
+        with self.assertRaises(TypeError):
+            Square(1, 2, 3, 4, 5)
+
+    def test_more_args(self):
+        s1 = Square(8, 7, 5)
+        s2 = Square(5, 4)
+
+        self.assertEqual(s1.id, s2.id - 1)
+        self.assertEqual(s1.size, 5)
+        self.assertEqual(s2.x, 4)
+
+        s3 = Square(8, 6)
+        self.assertEqual(s3.y, 6)
+        self.assertEqual(s3.x, 8)
+
+        s1.size = 23
+        self.assertEqual(s1.size, 23)
+
+if __name__ == "__main__":
+    unittest.main()

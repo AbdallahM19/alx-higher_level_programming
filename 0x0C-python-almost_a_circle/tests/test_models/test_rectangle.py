@@ -127,11 +127,6 @@ class TestRectangle(unittest.TestCase):
 
 """-----------------------------------"""
 
-#!/usr/bin/python3
-import unittest
-from models.base import Base
-from models.rectangle import Rectangle
-
 
 class TestRectangle(unittest.TestCase):
     def inheritance(self):
