@@ -307,7 +307,7 @@ were given"
         with self.assertRaises(TypeError) as e:
             Square.display()
         s = "Rectangle.display() \
-        missing 1 required positional argument: 'self'"
+missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
     def test_J_display_simple(self):
@@ -640,7 +640,7 @@ were given"
         with self.assertRaises(TypeError) as e:
             Square.to_dictionary()
         s = "Square.to_dictionary() \
-        missing 1 required positional argument: 'self'"
+missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), s)
 
         r = Square(1)
