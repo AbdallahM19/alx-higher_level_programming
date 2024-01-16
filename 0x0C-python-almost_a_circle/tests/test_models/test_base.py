@@ -135,7 +135,7 @@ class TestAnotherBase(unittest.TestCase):
 
     def test_O_to_json_string_empty_list(self):
         '''Tests to_json_string() with an empty list.'''
-        self.assertEqual(Base.to_json_string([]), [])
+        self.assertEqual(Base.to_json_string([]), '[]')
 
     def test_P_from_json_string_empty_string(self):
         '''Tests from_json_string() with an empty string.'''
@@ -231,7 +231,7 @@ class test_base(unittest.TestCase):
         sq = Square(1, 0, 0, 609)
         json_dict = sq.to_dictionary()
         json_string = Base.to_json_string(None)
-        self.assertEqual(json_string, [])
+        self.assertEqual(json_string, '[]')
 
     def test_to_json_Empty(self):
         '''
@@ -240,7 +240,7 @@ class test_base(unittest.TestCase):
         sq = Square(1, 0, 0, 609)
         json_dict = sq.to_dictionary()
         json_string = Base.to_json_string([])
-        self.assertEqual(json_string, [])
+        self.assertEqual(json_string, '[]')
 
 
 class TestSquare(unittest.TestCase):
@@ -266,7 +266,7 @@ class TestSquare(unittest.TestCase):
         """
         self.assertTrue(len(Base.__doc__) >= 1)
 
--------------------------------------------------
+'''-------------------------------------------------'''
 
 
 class TestBase(unittest.TestCase):
