@@ -9,7 +9,7 @@ import os
 import inspect
 
 
-class TestAnotherBase(unittest.TestCase):
+class TestBase(unittest.TestCase):
     """Tests the AnotherBase class."""
 
     def setUp(self):
@@ -237,7 +237,7 @@ class TestAnotherBase(unittest.TestCase):
         self.assertEqual(json_string, "[]")
 
 
-class TestSquare(unittest.TestCase):
+class TestBase_1(unittest.TestCase):
     """
     class for testing Base class' methods
     """
@@ -265,7 +265,7 @@ class TestSquare(unittest.TestCase):
 """-------------------------------------------------"""
 
 
-class TestBase(unittest.TestCase):
+class TestBase_2(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 

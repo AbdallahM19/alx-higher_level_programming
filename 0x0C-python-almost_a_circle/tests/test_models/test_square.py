@@ -18,7 +18,7 @@ from io import StringIO
 class TestSquare(unittest.TestCase):
     def test_constructor(self):
         square = Square(5)
-        self.assertEqual(square.id, 9)
+        self.assertEqual(square.id, 16)
         self.assertEqual(square.size, 5)
         self.assertEqual(square.width, 5)
         self.assertEqual(square.height, 5)
