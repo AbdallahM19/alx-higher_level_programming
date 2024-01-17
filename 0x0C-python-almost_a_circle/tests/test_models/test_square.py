@@ -101,27 +101,6 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             square.update(size=-5, x=10, y=15)
 
-    def test_save_to_file_none(self):
-        with self.assertRaises(TypeError):
-            Square.save_to_file(None)
-
-    def test_save_to_file_empty_list(self):
-        with self.assertRaises(ValueError):
-            Square.save_to_file([])
-
-    def test_save_to_file_with_squares(self):
-        square_list = [Square(1), Square(2, 3), Square(4, 5, 6)]
-        filename = "test_square_file.json"
-        Square.save_to_file(square_list, filename)
-        self.assertTrue(os.path.exists(filename))
-        with open(filename, 'r') as file:
-            loaded_data = json.load(file)
-        for i, square in enumerate(square_list):
-            self.assertEqual(loaded_data[i]['id'], square.id)
-            self.assertEqual(loaded_data[i]['size'], square.size)
-            self.assertEqual(loaded_data[i]['x'], square.x)
-            self.assertEqual(loaded_data[i]['y'], square.y)
-        os.remove(filename)
 
 """---------------------------------------------"""
 

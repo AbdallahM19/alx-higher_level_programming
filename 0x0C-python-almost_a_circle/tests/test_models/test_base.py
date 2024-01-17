@@ -11,12 +11,12 @@ import inspect
 class TestAnotherBase(unittest.TestCase):
     """Tests the AnotherBase class."""
 
-    def test_setUp(self):
+    def setUp(self):
         """Imports module, instantiates class"""
         Base._Base__nb_objects = 0
         pass
 
-    def tear_Down(self):
+    def tearDown(self):
         """Cleans up after each test_method."""
         pass
 
@@ -245,8 +245,14 @@ class test_base(unittest.TestCase):
         json_string = Base.to_json_string([])
         self.assertEqual(json_string, "[]")
 
+
+class TestSquare(unittest.TestCase):
+    """
+    class for testing Base class' methods
+    """
+
     @classmethod
-    def test_setUpClass(cls):
+    def setUpClass(cls):
         """
         Set up class method for the doc tests
         """
@@ -269,18 +275,18 @@ class test_base(unittest.TestCase):
 
 
 class TestBase(unittest.TestCase):
-    def test_setUp(self):
+    def setUp(self):
         Base._Base__nb_objects = 0
 
     def test_init(self):
         rectangle = Base()
-        self.assertEqual(rectangle.id, 4)
+        self.assertEqual(rectangle.id, 1)
 
         rectangle = Base(98)
         self.assertEqual(rectangle.id, 98)
 
         rectangle = Base()
-        self.assertEqual(rectangle.id, 5)
+        self.assertEqual(rectangle.id, 2)
 
         base = Base(98)
         base.id = 70
