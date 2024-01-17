@@ -154,6 +154,33 @@ class TestRectangle(unittest.TestCase):
             rect_dict, {"id": 7, "width": 8, "height": 15, "x": 12, "y": 8}
         )
 
+    def test_inheritance(self):
+        self.assertIsInstance(Rectangle(6, 3), Base)
+        r2 = Rectangle(6, 7)
+        self.assertIsInstance(r2, Base)
+        self.assertIsInstance(r2, Rectangle)
+
+    def test_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1)
+
+        with self.assertRaises(TypeError):
+            Rectangle()
+
+        with self.assertRaises(TypeError):
+            Rectangle(8, 7, 9, 3, 8, 5, 2)
+
+    def test_more_args(self):
+        rec = Rectangle(4, 2, 6)
+        self.assertEqual(rec.y, 0)
+
+        rec = Rectangle(7, 8, 9, 4)
+        rec1 = Rectangle(6, 8)
+        self.assertEqual(rec.id, rec1.id - 1)
+
+        rec = Rectangle(8, 4)
+        self.assertEqual(rec.x, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
