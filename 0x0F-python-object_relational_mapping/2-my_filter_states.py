@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Write a script that lists all states
-from the database 'hbtn_0e_0_usa':
+Write a script that takes in an argument
+displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument.
 """
 
 import MySQLdb
@@ -9,10 +10,11 @@ import sys
 
 if __name__ == "__main__":
     """
-    Your script should take 3 arguments:
+    Your script should take 4 arguments:
     mysql username
     mysql password
-    database name (no argument validation needed)
+    database name and state name searched
+    (no argument validation needed)
     """
     args_cur = MySQLdb.connect(
         host="localhost",
@@ -22,7 +24,11 @@ if __name__ == "__main__":
         db=sys.argv[3],
     )
     cur = args_cur.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cur.execute(
+        "SELECT * FROM states WHERE name = %s \
+        ORDER BY states.id ASC",
+        (sys.argv[4],),
+    )
     row = cur.fetchall()
     for i in row:
         print(i)
