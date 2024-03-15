@@ -16,24 +16,22 @@ if __name__ == "__main__":
     database name
     state name
     """
-    args_cur = MySQLdb.connect(
+    with MySQLdb.connect(
         host="localhost",
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3]
-    )
-    with args_cur.cursor() as cur:
-        cur.execute(
-            "SELECT cities.id, cities.name FROM cities \
-            JOIN states ON cities.state_id = states.id \
-            WHERE states.name = %(name)s \
-            ORDER BY cities.id ASC", {'name': sys.argv[4]}
-        )
-        rows = cur.fetchall()
-    for i, row in enumerate(rows):
-        print(row)
-        if i != len(cur) - 1:
-            print(", ")
-    cur.close()
-    args_cur.close()
+    ) as args_cur:
+        with args_cur.cursor() as cur:
+            cur.execute(
+                "SELECT cities.id, cities.name FROM cities \
+                JOIN states ON cities.state_id = states.id \
+                WHERE states.name = %(name)s \
+                ORDER BY cities.id ASC", {'name': sys.argv[4]}
+            )
+            rows = cur.fetchall()
+        for i, row in enumerate(rows):
+            print(row)
+            if i != len(rows) - 1:
+                print(", ")
