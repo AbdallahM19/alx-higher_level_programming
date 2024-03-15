@@ -30,11 +30,9 @@ if __name__ == "__main__":
         WHERE states.name = %(name)s\
         ORDER BY cities.id ASC", {'name': sys.argv[4]}
     ).fetchall()
-    for i in cur:
-        print(i)
-        if cur[i+1]:
-            print("")
-        else:
+    for i, row in enumerate(cur):
+        print(row)
+        if i != len(cur) - 1:
             print(", ")
     cur.close()
     args_cur.close()
