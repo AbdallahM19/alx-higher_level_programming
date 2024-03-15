@@ -24,8 +24,8 @@ if __name__ == "__main__":
     )
     cur = args_cur.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%' \
-ORDER BY states.id ASC"
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' \
+        ORDER BY states.id ASC"
     )
     row = cur.fetchall()
     for i in row:
