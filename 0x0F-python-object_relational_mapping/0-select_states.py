@@ -26,5 +26,3 @@ if __name__ == '__main__':
     row = cur.fetchall()
     for i in row:
         print(i)
-    cur.close()
-    args.close()
