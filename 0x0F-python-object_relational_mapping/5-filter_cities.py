@@ -23,15 +23,16 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-    with args_cur.cursor() as cur:
-        cur.execute(
-            "SELECT cities.id, cities.name FROM cities \
-            JOIN states ON cities.state_id = states.id \
-            WHERE states.name = %(name)s \
-            ORDER BY cities.id ASC", {'name': sys.argv[4]}
-        )
-        rows = cur.fetchall()
-    if rows is not None:
-        print(", ".join([row[1] for row in rows]))
+    cur = args_cur.cursor()
+    cur.execute(
+        "SELECT cities.id, cities.name FROM cities \
+        JOIN states ON cities.state_id = states.id \
+        WHERE states.name = %(name)s \
+        ORDER BY cities.id ASC", {'name': sys.argv[4]}
+    )
+    rows = cur.fetchall()
+    res = [row[1] for row in rows]
+    print(', '.join(res))
+
     cur.close()
     args_cur.close()
