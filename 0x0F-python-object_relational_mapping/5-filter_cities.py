@@ -29,8 +29,9 @@ if __name__ == "__main__":
         JOIN states ON cities.state_id = states.id \
         WHERE states.name LIKE BINARY %(name)s \
         ORDER BY cities.id ASC", {'name': sys.argv[4]}
-    ).fetchall()
-    for i, row in enumerate(cur):
+    )
+    rows = cur.fetchall()
+    for i, row in enumerate(rows):
         print(row)
         if i != len(cur) - 1:
             print(", ")
