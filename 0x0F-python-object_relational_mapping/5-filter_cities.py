@@ -23,14 +23,14 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-    cur = args_cur.cursor()
-    cur.execute(
-        "SELECT cities.id, cities.name FROM cities \
-        JOIN states ON cities.state_id = states.id \
-        WHERE states.name LIKE BINARY %(name)s \
-        ORDER BY cities.id ASC", {'name': sys.argv[4]}
-    )
-    rows = cur.fetchall()
+    with args_cur.cursor() as cur:
+        cur.execute(
+            "SELECT cities.id, cities.name FROM cities \
+            JOIN states ON cities.state_id = states.id \
+            WHERE states.name = %(name)s \
+            ORDER BY cities.id ASC", {'name': sys.argv[4]}
+        )
+        rows = cur.fetchall()
     for i, row in enumerate(rows):
         print(row)
         if i != len(cur) - 1:
