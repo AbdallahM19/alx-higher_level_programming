@@ -27,7 +27,7 @@ if __name__ == "__main__":
     cur.execute(
         "SELECT cities.id, cities.name FROM cities \
         JOIN states ON cities.state_id = states.id \
-        WHERE states.name = %(name)s\
+        WHERE states.name = %(name)s \
         ORDER BY cities.id ASC", {'name': sys.argv[4]}
     ).fetchall()
     for i, row in enumerate(cur):
