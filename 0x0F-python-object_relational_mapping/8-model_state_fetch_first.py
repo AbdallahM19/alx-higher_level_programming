@@ -30,6 +30,6 @@ def model_state_fetch_first(user, password, name):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 4:
+    if len(argv) == 4:
         username, password, db_name = argv[1], argv[2], argv[3]
         model_state_fetch_first(username, password, db_name)
