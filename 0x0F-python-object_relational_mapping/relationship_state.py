@@ -18,7 +18,7 @@ class State(Base):
     inherits from Base Tips
     links to the MySQL table states
     class attribute id
-    class attribute name 
+    class attribute name
     """
     __tablename__ = 'states'
 
