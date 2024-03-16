@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 
 def model_state_fetch_first(user, password, name):
     """
-    prints the first State
+    lists all State objects
     """
     engine = create_engine(
         "mysql+mysqldb://{}:{}@localhost/{}".format(
@@ -21,7 +21,8 @@ def model_state_fetch_first(user, password, name):
     )
     Session = sessionmaker(bind=engine)
     Sess = Session()
-    state = Sess.query(State).order_by(State.id).filter(State.name.cotains('a'))
+    state = Sess.query(State).filter(State.name.contains('a'))
+    state = state.order_by(State.id)
     if state is not None:
         for i in state:
             print("{}: {}".format(i.id, i.name))
