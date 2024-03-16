@@ -26,7 +26,7 @@ def model_city_fetch_first(user, password, name):
     )
     Session = sessionmaker(bind=engine)
     Sess = Session()
-    citizen = Sess.query(City, State).filter(State.id == City.state_id)
+    citizen = Sess.query(City, State).join(State)
     for state, city in citizen.all():
         print("{}: ({}) {}".format(state.name, city.id, city.name))
     citizen.commit()
