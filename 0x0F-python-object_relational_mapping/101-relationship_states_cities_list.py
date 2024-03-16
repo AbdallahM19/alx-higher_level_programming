@@ -30,7 +30,7 @@ def relationship_states_cities(user, password, name):
     state = Sess.query(State).order_by(State.id)
     for i in state:
         print("{}: {}".format(i.id, i.name))
-        for k in i:
+        for k in i.cities:
             print("\t{}: {}".format(k.id, k.name))
     Sess.close()
     engine.close()
