@@ -6,8 +6,8 @@ from the database hbtn_0e_14_usa
 """
 
 from sys import argv
-from model_state import State
-from model_city import City, Base
+from model_state import Base, State
+from model_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -22,7 +22,7 @@ def model_city_fetch_first(user, password, name):
     engine = create_engine(
         "mysql+mysqldb://{}:{}@localhost/{}".format(
             user, password, name
-        ), pool_pre_ping=True
+        )
     )
     Session = sessionmaker(bind=engine)
     Sess = Session()
