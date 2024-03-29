@@ -6,7 +6,6 @@ uses the GitHub API to display your id
 """
 import requests
 from sys import argv
-from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
     url = ("https://api.github.com/repos/{}/{}/commits").format(
@@ -16,10 +15,8 @@ if __name__ == "__main__":
     commits = res.json()
     try:
         for i in range(10):
-            sha = commits[i].get("sha")
-            author = commits[1].get(
-                "commit"
-            ).get("author").get("name")
-            print("{}: {}".format(sha, author))
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
     except IndexError:
         pass
